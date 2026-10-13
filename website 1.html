@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Ace</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: rgb(87, 87, 87);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .WELCOME {
+            background-color: #333333;
+            padding: 20px;
+        }
+
+        .personal-space {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 15px;
+        }
+
+        .personal-space-left {
+            color: rgba(0, 0, 0, 0.529);
+            font-size: 25px;
+            width: 500px;
+            background-color: #fbfbfb85;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 150px;
+            font-weight: bold;
+            box-shadow: 0 0 3px black;
+        }
+
+        h1 {
+            color: rgba(12, 237, 237, 0.299);
+            font-family: Arial, sans-serif;
+            font-size: 100px;
+            background-color: #33333386;
+            padding: 30px;
+            margin: 80px auto 30px;
+            border-radius: 15px;
+            width: min(500px, 90%);
+            box-shadow: 0 0 5px black;
+            transition: transform 0.4s ease-in-out,
+                        box-shadow 0.4s ease-in-out;
+            letter-spacing: -4.2px;
+        }
+
+        h1:hover {
+            background-color: #555555;
+            box-shadow: 0 0 30px rgba(47, 46, 46, 0.4);
+            color: rgba(225, 11, 11, 0.141);
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.185);
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 25px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.443);
+            text-decoration: none;
+            transition: transform 0.3s ease,
+                        color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: rgba(255, 0, 140, 0.797);
+            transform: translateY(-3px);
+        }
+
+        .below-links {
+            text-align: left;
+            padding: 30px;
+            color: rgba(255, 0, 115, 0.706);
+            font-weight: bold;
+        }
+
+        .below-links h2 {
+            font-size: 45px;
+            color: rgba(0, 0, 0, 0.363);
+            font-weight: normal;
+            margin-bottom: 5px;
+            letter-spacing: -3px;
+        }
+
+        .below-links h3 {
+            font-size: 70px;
+            color: rgba(0, 0, 0, 0.529);
+            margin-top: 5px;
+            letter-spacing: -2.3px;
+        }
+
+        .below-links h4 {
+            font-size: 45px;
+            margin-top: 5px;
+            letter-spacing: -2.3px;
+            color: rgba(255, 0, 140, 0.797);
+        }
+
+        .below-links p {
+            font-size: 35px;
+            line-height: 1.8;
+            color: #ffffff8e;
+            font-weight: normal;
+            letter-spacing: -2.3px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 650px;
+            margin-top: -400px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-grid img:hover {
+            opacity: 1;
+        }
+
+        .about-me {
+            color: rgba(18, 154, 208, 0.587);
+            font-size: 40px;
+            margin-top: 5px;
+            letter-spacing: -2.3px;
+        }
+
+        .clock {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.35);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 22px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .photo-grid img.scroll-reveal {
+    transform: translateY(40px);
+        }
+
+        .photo-grid img.scroll-reveal.show {
+                opacity: 0.3;
+                transform: translateY(0);
+        }
+
+        body {
+                animation: pageOpen 0.75s ease-out;
+        }
+
+        @keyframes pageOpen {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+        }
+        body {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.407);
+}
+    </style>
+</head>
+
+<body>
+    <div class="WELCOME">
+        <header class="personal-space">
+            <div class="personal-space-left">PERSONAL SPACE // EST. 2026</div>
+        </header>
+
+        <h1>Welcome</h1>
+
+        <nav>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i> YouTube
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i> Facebook
+            </a>
+
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-pinterest"></i> Pinterest
+            </a>
+
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-chatgpt"></i> ֍ ChatGPT
+            </a>
+        </nav>
+    </div>
+
+    <hr color="darkgray" width="100%">
+
+    <section class="below-links">
+        <h2>A LITTLE ABOUT ME</h2>
+        <h3>Hey, I'm Ace.</h3>
+        <h4>Still figuring things out.</h4>
+
+        <p>
+            Hello and Welcome! This is a project for my personal needs.
+            <br>
+            I am trying to build a website that will help me on my daily use of my Computer.
+            <br>I provided the links of the sites that I usually use at the top.
+            <br>Still progressing and adding more features.
+            I don't know what to do or add so I will do more research.
+        </p>
+
+        <div class="about-container">
+            <div class="about-text">
+                <p>
+                    <b>I am from Angeles University Foundation<br></b>
+                    A freshman who has lots of dreams to pursue, I would love to become successful and help people.
+                    <br>
+                    I have nothing to do really, so I will add my moodboard and photos into this website so it'll look a little cooler.
+                    <br>
+                    <span class="about-me"><b>My Interests</b></span>
+                    <br>If you couldn't tell, I am a big fan of Kpop and Valorant
+                    <b>(I've hit Immortal 3)</b>. I am really into music genres like
+                    <b>RNB trapsoul.</b>
+                    <br>I read mangas time to time and I am also really into
+                    <b>fashion: streetwear mostly.</b>
+                    Most of my fashion inspiration comes from <b>CORTIS</b>, one of my favorite groups.
+                    <br>
+                    <br> I don't really know what else to say, this is getting a little awkward. 
+                    <br> Well thank you for checking this practice website out.
+                    <br><br><br> Socials :               
+                    <a href="https://www.instagram.com/eiseu.07/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i> Instagram     
+                    <a href="https://www.tiktok.com/@ace27_2007" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-tiktok"></i>    TikTok
+                    </a>
+                </p>
+            </div>
+
+            <div class="photo-grid">
+                <img src="download.jpg" alt="Photo 1">
+                <img src="stussy.jpg" alt="Photo 2">
+                <img src="hearts.jpg" alt="Photo 3">
+                <img src="explicit.jpg" alt="Photo 4">
+                <img src="chaewon.jpg" alt="Photo 5">
+                <img src="snoopy.jpg" alt="Photo 6">
+                <img src="wave to earth.jpg" alt="Photo 7">
+                <img src="pnd.jpg" alt="Photo 8">
+                <img src="jett.jpg" alt="Photo 9">
+                <img src="Valorant.jpg" alt="Photo 10">
+            </div>
+        </div>
+    </section>
+
+    <div class="clock" id="clock">00:00:00</div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            const time = now.toLocaleTimeString('en-PH', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+
+            document.getElementById('clock').textContent = time;
+        }
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+<script>
+    const revealElements = document.querySelectorAll(
+        'h1, h2, h3, h4, p, a, .personal-space-left, .about-me'
+    );
+
+    revealElements.forEach(element => {
+        element.classList.add('scroll-reveal');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+</script>
+</body>
+</html>
